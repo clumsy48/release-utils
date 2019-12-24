@@ -4,9 +4,19 @@
     {
       "repoName": "table-object-data-ws",
       "steps": [
-        "MVN_PACKAGE"
+        "MVN_PACKAGE_SKIP_TESTS",
+        "UPDATE_DEPENDENCY"
       ],
-      "dependencies": []
+      "dependencies": [
+        {
+          "dependencyVariableInPom": "java.version",
+          "expectedVersion": "1.11"
+        },
+        {
+          "dependencyVariableInPom": "async.http.version",
+          "expectedVersion": "2.10.1"
+        }
+      ]
     }
   ]
 }

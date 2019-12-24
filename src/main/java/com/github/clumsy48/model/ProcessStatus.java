@@ -1,6 +1,6 @@
 package com.github.clumsy48.model;
 
-public enum ReleaseStatus {
+public enum ProcessStatus {
     SUCCESS,
     FAILURE
 }

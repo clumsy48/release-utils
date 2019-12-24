@@ -7,25 +7,26 @@ import java.util.List;
  */
 public class ReleaseStepManual {
 
-    private String baseDir;
-    private List<Repo> repos;
+  private String baseDir;
+  private List<Repo> repos;
 
-    public ReleaseStepManual() {
-    }
+  // setter & getter
+  public ReleaseStepManual() {
+  }
 
-    public String getBaseDir() {
-        return baseDir;
-    }
+  public String getBaseDir() {
+    return baseDir;
+  }
 
-    public void setBaseDir(String baseDir) {
-        this.baseDir = baseDir;
-    }
+  public void setBaseDir(String baseDir) {
+    this.baseDir = baseDir;
+  }
 
-    public List<Repo> getRepos() {
-        return repos;
-    }
+  public List<Repo> getRepos() {
+    return repos;
+  }
 
-    public void setRepos(List<Repo> repos) {
-        this.repos = repos;
-    }
+  public void setRepos(List<Repo> repos) {
+    this.repos = repos;
+  }
 }

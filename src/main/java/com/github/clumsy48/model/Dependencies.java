@@ -5,25 +5,25 @@ package com.github.clumsy48.model;
  */
 public class Dependencies {
 
-    private String dependencyVariableInPom;
-    private String expectedRCVersion;
+  private String dependencyVariableInPom;
+  private String expectedVersion;
 
-    public Dependencies() {
-    }
+  public Dependencies() {
+  }
 
-    public String getDependencyVariableInPom() {
-        return dependencyVariableInPom;
-    }
+  public String getDependencyVariableInPom() {
+    return dependencyVariableInPom;
+  }
 
-    public void setDependencyVariableInPom(String dependencyVariableInPom) {
-        this.dependencyVariableInPom = dependencyVariableInPom;
-    }
+  public void setDependencyVariableInPom(String dependencyVariableInPom) {
+    this.dependencyVariableInPom = dependencyVariableInPom;
+  }
 
-    public String getExpectedRCVersion() {
-        return expectedRCVersion;
-    }
+  public String getExpectedVersion() {
+    return expectedVersion;
+  }
 
-    public void setExpectedRCVersion(String expectedRCVersion) {
-        this.expectedRCVersion = expectedRCVersion;
-    }
+  public void setExpectedVersion(String expectedVersion) {
+    this.expectedVersion = expectedVersion;
+  }
 }

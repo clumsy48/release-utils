@@ -5,15 +5,22 @@ package com.github.clumsy48.model;
  */
 // todo: might be redundant
 public class ReleaseStepStatus {
-    private ReleaseStatus releaseStatus;
+    private ProcessStatus processStatus;
     private String message;
 
-    public ReleaseStatus getReleaseStatus() {
-        return releaseStatus;
+    public static ReleaseStepStatus build(ProcessStatus processStatus, String message) {
+        ReleaseStepStatus status = new ReleaseStepStatus();
+        status.setMessage(message);
+        status.setProcessStatus(processStatus);
+        return status;
     }
 
-    public void setReleaseStatus(ReleaseStatus releaseStatus) {
-        this.releaseStatus = releaseStatus;
+    public ProcessStatus getProcessStatus() {
+        return processStatus;
+    }
+
+    public void setProcessStatus(ProcessStatus processStatus) {
+        this.processStatus = processStatus;
     }
 
     public String getMessage() {
@@ -22,13 +29,5 @@ public class ReleaseStepStatus {
 
     public void setMessage(String message) {
         this.message = message;
-    }
-
-    public static ReleaseStepStatus build(ReleaseStatus releaseStatus, String message) {
-        ReleaseStepStatus status = new ReleaseStepStatus();
-        status.setMessage(message);
-        status.setReleaseStatus(releaseStatus);
-        return status;
-    }
-
+  }
 }
