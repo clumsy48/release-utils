@@ -17,7 +17,7 @@ public class BuildStep extends ReleaseStepFunction {
         try {
             status =
                     ProcessRunner.startProcess(
-                            Commands.CMD_MVN_PACKAGE,
+                            Commands.CMD_MVN_PACKAGE_WITHOUT_TESTS,
                             repo,
                             Constants.MVN_SUCCESS_REGEX,
                             Constants.MVN_FAILURE_REGEX);

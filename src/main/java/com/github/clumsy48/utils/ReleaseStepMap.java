@@ -19,6 +19,7 @@ public class ReleaseStepMap {
         RELEASE_STEP_FUNCTION_MAP = new HashMap<>();
         RELEASE_STEP_FUNCTION_MAP.put(ReleaseStep.JAVA8, new SetJavaStep());
         RELEASE_STEP_FUNCTION_MAP.put(ReleaseStep.MVN_PACKAGE, new BuildStep());
+        RELEASE_STEP_FUNCTION_MAP.put(ReleaseStep.MVN_PACKAGE_SKIP_TESTS, new BuildStep());
     }
 
 
