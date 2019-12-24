@@ -1,6 +1,5 @@
 package com.github.clumsy48.steps;
 
-import com.github.clumsy48.cmds.Commands;
 import com.github.clumsy48.cmds.ProcessRunner;
 import com.github.clumsy48.model.ProcessStatus;
 import com.github.clumsy48.model.ReleaseStepArguments;
@@ -19,10 +18,8 @@ public class SetJavaStep extends ReleaseStepFunction {
     try {
       status =
               ProcessRunner.startProcess(
-                      Commands.CMD_SET_JAVA_VERSION,
-                      args.getRepo(),
-                      Constants.JAVA_8_SUCCESS_REGEX,
-                      Constants.JAVA_8_SUCCESS_REGEX);
+                      Constants.CMD_SET_JAVA_VERSION,
+                      args.getRepo());
 
     } catch (Exception e) {
       System.out.println("# Failed to complete this step " + e.getMessage());

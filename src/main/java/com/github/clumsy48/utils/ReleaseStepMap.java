@@ -1,10 +1,7 @@
 package com.github.clumsy48.utils;
 
 import com.github.clumsy48.model.ReleaseStep;
-import com.github.clumsy48.steps.BuildStep;
-import com.github.clumsy48.steps.ReleaseStepFunction;
-import com.github.clumsy48.steps.SetJavaStep;
-import com.github.clumsy48.steps.UpdateDependencyStep;
+import com.github.clumsy48.steps.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -22,5 +19,6 @@ public class ReleaseStepMap {
     RELEASE_STEP_FUNCTION_MAP.put(ReleaseStep.MVN_PACKAGE, new BuildStep());
     RELEASE_STEP_FUNCTION_MAP.put(ReleaseStep.MVN_PACKAGE_SKIP_TESTS, new BuildStep());
     RELEASE_STEP_FUNCTION_MAP.put(ReleaseStep.UPDATE_DEPENDENCY, new UpdateDependencyStep());
+    RELEASE_STEP_FUNCTION_MAP.put(ReleaseStep.GIT_PUSH_UPDATED_DEPENDENCY, new GitPushDependencyStep());
   }
 }

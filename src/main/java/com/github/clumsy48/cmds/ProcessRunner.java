@@ -11,8 +11,7 @@ import java.io.InputStreamReader;
  */
 public class ProcessRunner {
 
-  public static ProcessStatus startProcess(
-          String cmd, String repo, String successRegex, String failureRegex) throws Exception {
+  public static ProcessStatus startProcess(String cmd, String repo) throws Exception {
     System.out.println("Running " + cmd + " on " + repo);
     Process p = new ProcessBuilder("bash", "-c", cmd).directory(new File(repo)).start();
 
@@ -22,19 +21,13 @@ public class ProcessRunner {
     System.out.println("Process started:");
     String log;
     ProcessStatus processStatus = ProcessStatus.FAILURE;
-    while ((log = processInpStream.readLine()) != null) {
-      System.out.println(">>> " + log);
-      if (log.contains(successRegex)) {
-        processStatus = ProcessStatus.SUCCESS;
-      }
-    }
-    // System.out.println("Process failed:\n");
-    while ((log = processErrStream.readLine()) != null) {
-      System.out.println(">>> " + log);
-      if (log.contains(failureRegex)) {
-        processStatus = ProcessStatus.FAILURE;
-      }
-    }
+    while ((log = processInpStream.readLine()) != null) System.out.println(">>> " + log);
+
+    while ((log = processErrStream.readLine()) != null) System.out.println(">>> " + log);
+
+    if (p.waitFor() == 0) // wait for the process to complete // code 0 is terminates normally
+      processStatus = ProcessStatus.SUCCESS;
+
     p.destroy(); // kill the process
     return processStatus;
   }

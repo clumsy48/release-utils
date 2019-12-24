@@ -28,6 +28,7 @@ public class TestCmd {
                                           manual.getBaseDir() + File.separator + repo.getRepoName(),
                                           repo.getDependencies()));
           if (releaseStepStatus.getProcessStatus() == ProcessStatus.FAILURE) break;
+          System.out.println("\n$$$ Completed step " + releaseStep + " on " + repo.getRepoName() + " $$$\n");
         }
       }
     }
