@@ -1,0 +1,12 @@
+{
+  "baseDir": "/Users/ssingh/code",
+  "repos": [
+    {
+      "repoName": "table-object-data-ws",
+      "steps": [
+        "MVN_PACKAGE"
+      ],
+      "dependencies": []
+    }
+  ]
+}
