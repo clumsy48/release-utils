@@ -14,7 +14,7 @@ public class TestCmd {
 
     if (args.length >= 1) {
       File stepsManualFile = new File(args[0]);
-      ReleaseStepManual manual = JSON_READER.readValue(stepsManualFile, ReleaseStepManual.class);
+      ReleaseManual manual = JSON_READER.readValue(stepsManualFile, ReleaseManual.class);
 
       // todo: add basic error handling
       for (Repo repo : manual.getRepos()) {

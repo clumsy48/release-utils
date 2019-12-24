@@ -5,13 +5,13 @@ import java.util.List;
 /**
  * @author shailendras
  */
-public class ReleaseStepManual {
+public class ReleaseManual {
 
   private String baseDir;
   private List<Repo> repos;
 
   // setter & getter
-  public ReleaseStepManual() {
+  public ReleaseManual() {
   }
 
   public String getBaseDir() {
