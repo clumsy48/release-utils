@@ -6,7 +6,7 @@ import com.github.clumsy48.utils.ReleaseStepMap;
 
 import java.io.File;
 
-public class TestCmd {
+public class Main {
 
   private static final ObjectMapper JSON_READER = new ObjectMapper();
 
