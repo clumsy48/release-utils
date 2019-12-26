@@ -19,16 +19,21 @@ public class Main {
       // todo: add basic error handling
       for (Repo repo : manual.getRepos()) {
         for (ReleaseStep releaseStep : repo.getSteps()) {
-          System.out.println("\n$$$ Running step " + releaseStep + " on " + repo.getRepoName() + " $$$\n");
-          ReleaseStepStatus releaseStepStatus =
+          System.out.println(
+                  "\n$$$ Running step " + releaseStep + " on " + repo.getRepoName() + " $$$\n");
+          ReleaseStepOutput releaseStepOutput =
                   ReleaseStepMap.RELEASE_STEP_FUNCTION_MAP
                           .get(releaseStep)
                           .apply(
-                                  new ReleaseStepArguments(
+                                  new ReleaseStepInput(
                                           manual.getBaseDir() + File.separator + repo.getRepoName(),
-                                          repo.getDependencies()));
-          if (releaseStepStatus.getProcessStatus() == ProcessStatus.FAILURE) break;
-          System.out.println("\n$$$ Completed step " + releaseStep + " on " + repo.getRepoName() + " $$$\n");
+                                          repo.getDependencies(),
+                                          manual.getSshPrivateKeyLocation(),
+                                          manual.getSshPassphraseLocation()));
+          if (releaseStepOutput.getReleaseStepStatus().getProcessStatus() == ProcessStatus.FAILURE)
+            break;
+          System.out.println(
+                  "\n$$$ Completed step " + releaseStep + " on " + repo.getRepoName() + " $$$\n");
         }
       }
     }

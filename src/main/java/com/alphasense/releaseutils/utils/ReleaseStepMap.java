@@ -19,6 +19,8 @@ public class ReleaseStepMap {
     RELEASE_STEP_FUNCTION_MAP.put(ReleaseStep.MVN_PACKAGE, new BuildStep());
     RELEASE_STEP_FUNCTION_MAP.put(ReleaseStep.MVN_PACKAGE_SKIP_TESTS, new BuildStep());
     RELEASE_STEP_FUNCTION_MAP.put(ReleaseStep.UPDATE_DEPENDENCY, new UpdateDependencyStep());
-    RELEASE_STEP_FUNCTION_MAP.put(ReleaseStep.GIT_PUSH_UPDATED_DEPENDENCY, new GitPushDependencyStep());
+    RELEASE_STEP_FUNCTION_MAP.put(
+            ReleaseStep.GIT_PUSH_UPDATED_DEPENDENCY, new GitPushDependencyStep());
+    RELEASE_STEP_FUNCTION_MAP.put(ReleaseStep.MVN_RELEASE_PLUGIN, new MVNReleasePluginStep());
   }
 }

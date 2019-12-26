@@ -8,7 +8,8 @@
       "steps": [
         "UPDATE_DEPENDENCY",
         "MVN_PACKAGE_SKIP_TESTS",
-        "GIT_PUSH_UPDATED_DEPENDENCY"
+        "GIT_PUSH_UPDATED_DEPENDENCY",
+        "MVN_RELEASE_PLUGIN"
       ],
       "dependencies": [
         {

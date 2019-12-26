@@ -13,8 +13,7 @@ public class ReleaseManual {
   private String sshPassphraseLocation;
 
   // setter & getter
-  public ReleaseManual() {
-  }
+  public ReleaseManual() {}
 
   public String getBaseDir() {
     return baseDir;

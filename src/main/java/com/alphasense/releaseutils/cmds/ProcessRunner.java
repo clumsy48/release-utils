@@ -12,7 +12,7 @@ import java.io.InputStreamReader;
 public class ProcessRunner {
 
   public static ProcessStatus startProcess(String cmd, String repo) throws Exception {
-    System.out.println("Running " + cmd + " on " + repo);
+      System.out.println("Executing " + cmd + " on " + repo);
     Process p = new ProcessBuilder("bash", "-c", cmd).directory(new File(repo)).start();
 
     BufferedReader processInpStream = new BufferedReader(new InputStreamReader(p.getInputStream()));
@@ -26,7 +26,7 @@ public class ProcessRunner {
     while ((log = processErrStream.readLine()) != null) System.out.println(">>> " + log);
 
     if (p.waitFor() == 0) // wait for the process to complete // code 0 is terminates normally
-      processStatus = ProcessStatus.SUCCESS;
+        processStatus = ProcessStatus.SUCCESS;
 
     p.destroy(); // kill the process
     return processStatus;

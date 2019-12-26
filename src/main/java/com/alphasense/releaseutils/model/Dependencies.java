@@ -8,8 +8,7 @@ public class Dependencies {
   private String dependencyVariableInPom;
   private String expectedVersion;
 
-  public Dependencies() {
-  }
+    public Dependencies() {}
 
   public String getDependencyVariableInPom() {
     return dependencyVariableInPom;

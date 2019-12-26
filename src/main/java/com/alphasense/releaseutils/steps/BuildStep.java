@@ -2,7 +2,8 @@ package com.alphasense.releaseutils.steps;
 
 import com.alphasense.releaseutils.cmds.ProcessRunner;
 import com.alphasense.releaseutils.model.ProcessStatus;
-import com.alphasense.releaseutils.model.ReleaseStepArguments;
+import com.alphasense.releaseutils.model.ReleaseStepInput;
+import com.alphasense.releaseutils.model.ReleaseStepOutput;
 import com.alphasense.releaseutils.model.ReleaseStepStatus;
 import com.alphasense.releaseutils.utils.Constants;
 
@@ -12,7 +13,7 @@ import com.alphasense.releaseutils.utils.Constants;
 public class BuildStep extends ReleaseStepFunction {
 
   @Override
-  public ReleaseStepStatus apply(ReleaseStepArguments args) {
+  public ReleaseStepOutput apply(ReleaseStepInput args) {
     ProcessStatus status;
     try {
       status =
@@ -22,10 +23,12 @@ public class BuildStep extends ReleaseStepFunction {
 
     } catch (Exception e) {
       System.out.println("# Failed to complete this step " + e.getMessage());
-      return ReleaseStepStatus.build(ProcessStatus.FAILURE, e.getMessage());
+        return ReleaseStepOutput.build(
+                ReleaseStepStatus.build(ProcessStatus.FAILURE, e.getMessage()));
     }
-    if (status == ProcessStatus.FAILURE) return ReleaseStepStatus.build(ProcessStatus.FAILURE, "");
+      if (status == ProcessStatus.FAILURE)
+          return ReleaseStepOutput.build(ReleaseStepStatus.build(ProcessStatus.FAILURE, ""));
 
-    return ReleaseStepStatus.build(ProcessStatus.SUCCESS, "");
+      return ReleaseStepOutput.build(ReleaseStepStatus.build(ProcessStatus.SUCCESS, ""));
   }
 }

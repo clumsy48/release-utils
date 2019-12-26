@@ -11,8 +11,7 @@ public class Repo {
   private List<ReleaseStep> steps;
   private List<Dependencies> dependencies;
 
-  public Repo() {
-  }
+    public Repo() {}
 
   public String getRepoName() {
     return repoName;

@@ -1,9 +1,6 @@
 package com.alphasense.releaseutils.steps;
 
-import com.alphasense.releaseutils.model.Dependencies;
-import com.alphasense.releaseutils.model.ProcessStatus;
-import com.alphasense.releaseutils.model.ReleaseStepArguments;
-import com.alphasense.releaseutils.model.ReleaseStepStatus;
+import com.alphasense.releaseutils.model.*;
 import com.alphasense.releaseutils.utils.Constants;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
@@ -20,16 +17,17 @@ import java.util.regex.Pattern;
 public class UpdateDependencyStep extends ReleaseStepFunction {
 
   @Override
-  public ReleaseStepStatus apply(ReleaseStepArguments args) {
+  public ReleaseStepOutput apply(ReleaseStepInput args) {
     File file = new File(args.getRepo() + File.separator + Constants.POM_FILE);
     // todo: add basic checks, if file not present
     // todo: add basic check for dependencies
     String pom;
-    try {
-      pom = IOUtils.toString(new FileInputStream(file), Charset.defaultCharset());
+    try (FileInputStream fis = new FileInputStream(file)) {
+      pom = IOUtils.toString(fis, Charset.defaultCharset());
     } catch (Exception e) {
       System.out.println("# Failed to read pom file " + e.getMessage());
-      return ReleaseStepStatus.build(ProcessStatus.FAILURE, e.getMessage());
+      return ReleaseStepOutput.build(
+              ReleaseStepStatus.build(ProcessStatus.FAILURE, e.getMessage()));
     }
     for (Dependencies dependencies : args.getDependencies()) {
       String dependency = dependencies.getDependencyVariableInPom();
@@ -65,6 +63,6 @@ public class UpdateDependencyStep extends ReleaseStepFunction {
       System.out.println("# Failed to rewrite updated pom file " + e.getMessage());
     }
 
-    return ReleaseStepStatus.build(ProcessStatus.SUCCESS, "");
+    return ReleaseStepOutput.build(ReleaseStepStatus.build(ProcessStatus.SUCCESS, ""));
   }
 }
