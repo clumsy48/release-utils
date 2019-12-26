@@ -1,5 +1,7 @@
 {
   "baseDir": "/Users/ssingh/code",
+  "sshPrivateKeyLocation": "~/.ssh/id_rsa",
+  "sshPassphraseLocation": "~/.ssh/passphrase",
   "repos": [
     {
       "repoName": "table-object-data-ws",

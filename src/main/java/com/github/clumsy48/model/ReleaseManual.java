@@ -9,6 +9,8 @@ public class ReleaseManual {
 
   private String baseDir;
   private List<Repo> repos;
+  private String sshPrivateKeyLocation;
+  private String sshPassphraseLocation;
 
   // setter & getter
   public ReleaseManual() {
@@ -28,5 +30,21 @@ public class ReleaseManual {
 
   public void setRepos(List<Repo> repos) {
     this.repos = repos;
+  }
+
+  public String getSshPrivateKeyLocation() {
+    return sshPrivateKeyLocation;
+  }
+
+  public void setSshPrivateKeyLocation(String sshPrivateKeyLocation) {
+    this.sshPrivateKeyLocation = sshPrivateKeyLocation;
+  }
+
+  public String getSshPassphraseLocation() {
+    return sshPassphraseLocation;
+  }
+
+  public void setSshPassphraseLocation(String sshPassphraseLocation) {
+    this.sshPassphraseLocation = sshPassphraseLocation;
   }
 }
