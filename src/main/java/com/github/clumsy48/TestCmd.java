@@ -1,54 +1,36 @@
 package com.github.clumsy48;
 
-import java.io.BufferedReader;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.github.clumsy48.model.*;
+import com.github.clumsy48.utils.ReleaseStepMap;
+
 import java.io.File;
-import java.io.IOException;
-import java.io.InputStreamReader;
 
 public class TestCmd {
 
-    public static void main(String[] args) {
-        if(args.length>=1){
-            int build = 0;
-            while (build<args.length){
-                System.out.println(args[build]);
-                try {
-                    String[] cmds = { "mvn clean install" };
-                    if(BuildStatus.FAILURE.equals(executeCommand(cmds[0],args[build]))) break;
-                } catch (IOException e) {
-                    System.out.println("exception happened - here's what I know: ");
-                    e.printStackTrace();
-                    System.exit(-1);
-                }
-                build++;
-            }
+  private static final ObjectMapper JSON_READER = new ObjectMapper();
+
+  public static void main(String[] args) throws Exception {
+
+    if (args.length >= 1) {
+      File stepsManualFile = new File(args[0]);
+      ReleaseManual manual = JSON_READER.readValue(stepsManualFile, ReleaseManual.class);
+
+      // todo: add basic error handling
+      for (Repo repo : manual.getRepos()) {
+        for (ReleaseStep releaseStep : repo.getSteps()) {
+          System.out.println("\n$$$ Running step " + releaseStep + " on " + repo.getRepoName() + " $$$\n");
+          ReleaseStepStatus releaseStepStatus =
+                  ReleaseStepMap.RELEASE_STEP_FUNCTION_MAP
+                          .get(releaseStep)
+                          .apply(
+                                  new ReleaseStepArguments(
+                                          manual.getBaseDir() + File.separator + repo.getRepoName(),
+                                          repo.getDependencies()));
+          if (releaseStepStatus.getProcessStatus() == ProcessStatus.FAILURE) break;
+          System.out.println("\n$$$ Completed step " + releaseStep + " on " + repo.getRepoName() + " $$$\n");
         }
-        else return;
-        System.exit(0);
+      }
     }
-    private static BuildStatus executeCommand(String cmd,String dir) throws IOException {
-        BuildStatus status = BuildStatus.FAILURE;
-        String s = null;
-        Process p = new ProcessBuilder("bash", "-c", cmd)
-                        .directory(new File(System.getProperty("user.home") + dir))
-                        .start();
-        // Process p = Runtime.getRuntime().pa.exec(cmd);
-        BufferedReader stdInput = new BufferedReader(new InputStreamReader(p.getInputStream()));
-        BufferedReader stdError = new BufferedReader(new InputStreamReader(p.getErrorStream()));
-        // read the output from the command
-        System.out.println("Here is the standard output of the command:\n");
-        while ((s = stdInput.readLine()) != null) {
-            System.out.println(s);
-            if(s.contains("BUILD SUCCESS")){
-                status = BuildStatus.SUCCESS;
-            }
-        }
-        // read any errors from the attempted command
-        if(status.equals("SUCCESS")) return status;
-        System.out.println("Here is the standard error of the command (if any):\n");
-        while ((s = stdError.readLine()) != null) {
-            System.out.println(s);
-        }
-        return status;
-    }
+  }
 }

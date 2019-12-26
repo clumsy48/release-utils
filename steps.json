@@ -1,0 +1,23 @@
+{
+  "baseDir": "/Users/ssingh/code",
+  "repos": [
+    {
+      "repoName": "table-object-data-ws",
+      "steps": [
+        "UPDATE_DEPENDENCY",
+        "MVN_PACKAGE_SKIP_TESTS",
+        "GIT_PUSH_UPDATED_DEPENDENCY"
+      ],
+      "dependencies": [
+        {
+          "dependencyVariableInPom": "backend.commons.version",
+          "expectedVersion": "4.03"
+        },
+        {
+          "dependencyVariableInPom": "java.version",
+          "expectedVersion": "1.8"
+        }
+      ]
+    }
+  ]
+}
