@@ -1,7 +1,7 @@
-package com.github.clumsy48.steps;
+package com.alphasense.releaseutils.steps;
 
-import com.github.clumsy48.model.ReleaseStepArguments;
-import com.github.clumsy48.model.ReleaseStepStatus;
+import com.alphasense.releaseutils.model.ReleaseStepArguments;
+import com.alphasense.releaseutils.model.ReleaseStepStatus;
 
 import java.util.function.Function;
 

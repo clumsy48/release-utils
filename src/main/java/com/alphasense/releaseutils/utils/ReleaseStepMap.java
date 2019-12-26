@@ -1,7 +1,7 @@
-package com.github.clumsy48.utils;
+package com.alphasense.releaseutils.utils;
 
-import com.github.clumsy48.model.ReleaseStep;
-import com.github.clumsy48.steps.*;
+import com.alphasense.releaseutils.model.ReleaseStep;
+import com.alphasense.releaseutils.steps.*;
 
 import java.util.HashMap;
 import java.util.Map;

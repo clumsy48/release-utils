@@ -1,10 +1,10 @@
-package com.github.clumsy48.steps;
+package com.alphasense.releaseutils.steps;
 
-import com.github.clumsy48.cmds.ProcessRunner;
-import com.github.clumsy48.model.ProcessStatus;
-import com.github.clumsy48.model.ReleaseStepArguments;
-import com.github.clumsy48.model.ReleaseStepStatus;
-import com.github.clumsy48.utils.Constants;
+import com.alphasense.releaseutils.cmds.ProcessRunner;
+import com.alphasense.releaseutils.model.ProcessStatus;
+import com.alphasense.releaseutils.model.ReleaseStepArguments;
+import com.alphasense.releaseutils.model.ReleaseStepStatus;
+import com.alphasense.releaseutils.utils.Constants;
 
 /**
  * @author shailendras

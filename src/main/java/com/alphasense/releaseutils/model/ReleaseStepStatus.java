@@ -1,4 +1,4 @@
-package com.github.clumsy48.model;
+package com.alphasense.releaseutils.model;
 
 /**
  * @author shailendras

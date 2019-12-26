@@ -1,8 +1,8 @@
-package com.github.clumsy48;
+package com.alphasense.releaseutils;
 
+import com.alphasense.releaseutils.model.*;
+import com.alphasense.releaseutils.utils.ReleaseStepMap;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.github.clumsy48.model.*;
-import com.github.clumsy48.utils.ReleaseStepMap;
 
 import java.io.File;
 
