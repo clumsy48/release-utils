@@ -1,6 +1,6 @@
-package com.alphasense.releaseutils.cmds;
+package com.github.clumsy.releaseutils.cmds;
 
-import com.alphasense.releaseutils.model.ProcessStatus;
+import com.github.clumsy.releaseutils.model.ProcessStatus;
 
 import java.io.BufferedReader;
 import java.io.File;

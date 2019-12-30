@@ -1,7 +1,13 @@
-package com.alphasense.releaseutils.steps;
+package com.github.clumsy.releaseutils.steps;
 
-import com.alphasense.releaseutils.model.*;
-import com.alphasense.releaseutils.utils.Constants;
+import com.github.clumsy.releaseutils.model.*;
+import com.github.clumsy.releaseutils.utils.Constants;
+import com.github.clumsy.releaseutils.model.Dependencies;
+import com.github.clumsy.releaseutils.model.ProcessStatus;
+import com.github.clumsy.releaseutils.model.ReleaseStepInput;
+import com.github.clumsy.releaseutils.model.ReleaseStepOutput;
+import com.github.clumsy.releaseutils.model.ReleaseStepStatus;
+
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 
@@ -27,7 +33,7 @@ public class UpdateDependencyStep extends ReleaseStepFunction {
     } catch (Exception e) {
       System.out.println("# Failed to read pom file " + e.getMessage());
       return ReleaseStepOutput.build(
-              ReleaseStepStatus.build(ProcessStatus.FAILURE, e.getMessage()));
+                      ReleaseStepStatus.build(ProcessStatus.FAILURE, e.getMessage()));
     }
     for (Dependencies dependencies : args.getDependencies()) {
       String dependency = dependencies.getDependencyVariableInPom();

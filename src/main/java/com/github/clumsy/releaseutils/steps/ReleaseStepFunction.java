@@ -1,7 +1,7 @@
-package com.alphasense.releaseutils.steps;
+package com.github.clumsy.releaseutils.steps;
 
-import com.alphasense.releaseutils.model.ReleaseStepInput;
-import com.alphasense.releaseutils.model.ReleaseStepOutput;
+import com.github.clumsy.releaseutils.model.ReleaseStepInput;
+import com.github.clumsy.releaseutils.model.ReleaseStepOutput;
 
 import java.util.function.Function;
 

@@ -1,4 +1,4 @@
-package com.alphasense.releaseutils.utils;
+package com.github.clumsy.releaseutils.utils;
 
 /**
  * @author shailendras

@@ -1,4 +1,4 @@
-package com.alphasense.releaseutils.model;
+package com.github.clumsy.releaseutils.model;
 
 public enum ProcessStatus {
     SUCCESS,

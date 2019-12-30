@@ -1,8 +1,14 @@
-package com.alphasense.releaseutils;
+package com.github.clumsy.releaseutils;
 
-import com.alphasense.releaseutils.model.*;
-import com.alphasense.releaseutils.utils.ReleaseStepMap;
+import com.github.clumsy.releaseutils.model.*;
+import com.github.clumsy.releaseutils.utils.ReleaseStepMap;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.github.clumsy.releaseutils.model.ProcessStatus;
+import com.github.clumsy.releaseutils.model.ReleaseManual;
+import com.github.clumsy.releaseutils.model.ReleaseStep;
+import com.github.clumsy.releaseutils.model.ReleaseStepInput;
+import com.github.clumsy.releaseutils.model.ReleaseStepOutput;
+import com.github.clumsy.releaseutils.model.Repo;
 
 import java.io.File;
 

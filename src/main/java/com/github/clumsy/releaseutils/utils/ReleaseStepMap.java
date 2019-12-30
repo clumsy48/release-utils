@@ -1,7 +1,14 @@
-package com.alphasense.releaseutils.utils;
+package com.github.clumsy.releaseutils.utils;
 
-import com.alphasense.releaseutils.model.ReleaseStep;
-import com.alphasense.releaseutils.steps.*;
+import com.github.clumsy.releaseutils.model.ReleaseStep;
+import com.github.clumsy.releaseutils.steps.*;
+
+import com.github.clumsy.releaseutils.steps.BuildStep;
+import com.github.clumsy.releaseutils.steps.GitPushDependencyStep;
+import com.github.clumsy.releaseutils.steps.MVNReleasePluginStep;
+import com.github.clumsy.releaseutils.steps.ReleaseStepFunction;
+import com.github.clumsy.releaseutils.steps.SetJavaStep;
+import com.github.clumsy.releaseutils.steps.UpdateDependencyStep;
 
 import java.util.HashMap;
 import java.util.Map;
